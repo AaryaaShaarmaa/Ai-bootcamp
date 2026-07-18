@@ -1,0 +1,69 @@
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def addBook(self):
+        book = input("Enter book name: ")
+        self.books.append(book)
+        print("Book added.")
+
+    def removeBook(self):
+        book = input("Enter book name to remove: ")
+
+        if book in self.books:
+            self.books.remove(book)
+            print("Book removed.")
+        else:
+            print("Book not found.")
+
+    def searchBook(self):
+        book = input("Enter book name: ")
+
+        found = False
+
+        for i in self.books:
+            if book.lower() in i.lower():
+                print("Book found:", i)
+                found = True
+
+        if found == False:
+            print("Book not found.")
+
+    def displayBooks(self):
+        if len(self.books) == 0:
+            print("No books in library.")
+        else:
+            print("Books in Library:")
+            for i in self.books:
+                print(i)
+
+
+obj = Library()
+
+while True:
+    print("\n1. Add Book")
+    print("2. Remove Book")
+    print("3. Search Book")
+    print("4. Display Books")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        obj.addBook()
+
+    elif choice == "2":
+        obj.removeBook()
+
+    elif choice == "3":
+        obj.searchBook()
+
+    elif choice == "4":
+        obj.displayBooks()
+
+    elif choice == "5":
+        print("Program Ended")
+        break
+
+    else:
+        print("Invalid Choice")
